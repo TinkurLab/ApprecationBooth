@@ -78,9 +78,9 @@ while True:
 			server.sendmail(USERNAME, to, msg.as_string())
 			server.quit()
 		
-		sendMail( ["tinkurbooth@gmail.com"],
-		        "Another TinkurBooth Photo",
-		        "This is the caption.",
+		sendMail( ["sender@youremail.com"],
+		        "Email Subject Goes Here",
+		        "Email Body Goes Here",
 	        ["ff.gif"])
 
 	
