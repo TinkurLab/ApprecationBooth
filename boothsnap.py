@@ -7,7 +7,6 @@ from time import sleep
 
 #import for motion sensor
 import RPi.GPIO as io
-io.setmode(io.BCM)
 
 #import for email
 import smtplib
