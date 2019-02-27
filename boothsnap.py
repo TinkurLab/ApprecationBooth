@@ -37,7 +37,6 @@ PASSWORD = "yourpassword"
 print("booth starting up...")
 
 while True:
-	  print(io.input(pir_pin))
       if io.input(pir_pin):
 	        print("PIR ALARM!")
 	
