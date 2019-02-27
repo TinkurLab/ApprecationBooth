@@ -27,7 +27,7 @@ pir_pin = 18
 
 # GPIO setup
 io.setmode(io.BOARD)
-io.setup(pir_pin, io.IN, pull_up_down=io.PUD_UP)
+io.setup(pir_pin, io.IN)
 
 #email config
 USERNAME = "your@emailaddress.com"
