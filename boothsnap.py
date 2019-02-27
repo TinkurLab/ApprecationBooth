@@ -86,4 +86,4 @@ while True:
 	
 		print "done - ready to shoot"
 
-	time.sleep(1.0)
+		time.sleep(1.0)
