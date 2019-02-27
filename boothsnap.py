@@ -60,23 +60,7 @@ while True:
 	
 	print "uploading photos"
 
-	import dropbox
-
-	client = dropbox.client.DropboxClient(<auth_token>)
-	print 'linked account: ', client.account_info()
-
-	f = open('working-draft.txt', 'rb')
-	response = client.put_file('/magnum-opus.txt', f)
-	print 'uploaded: ', response
-
-	folder_metadata = client.metadata('/')
-	print 'metadata: ', folder_metadata
-
-	f, metadata = client.get_file_and_metadata('/magnum-opus.txt')
-	out = open('magnum-opus.txt', 'wb')
-	out.write(f.read())
-	out.close()
-	print metadata
+	
 
 	#send email
 	# def sendMail(to, subject, text, files=[]):
