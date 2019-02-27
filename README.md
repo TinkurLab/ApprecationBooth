@@ -8,3 +8,4 @@ www.TinkurLab.com
 
 sudo apt-get install graphicsmagick
 
+pip install dropbox
