@@ -50,7 +50,7 @@ while True:
 	print "processing photos"
 
 	graphicsmagick = "gm convert -delay 100 ~/Documents/src/TinkurBooth/*.jpg ~/Documents/src/TinkurBooth/ff.gif" 
-	subprocess.call (graphicsmagick)
+	os.system(graphicsmagick)
 	
 	print "uploading photos"
 		
