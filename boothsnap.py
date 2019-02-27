@@ -37,57 +37,57 @@ PASSWORD = "yourpassword"
 print("booth starting up...")
 
 while True:
-      if io.input(pir_pin):
-	        print("PIR ALARM!")
+	io.wait_for_edge(pir_pin, io.FALLING)
+	print("PIR ALARM!")
 	
-		#photo capture
-		for x in range(total_dur):
-			file_name = str(x) + '.jpg'
-			print file_name
-			subprocess.call (["raspistill", "-o", file_name, "-n", "-w", "600", "-h", "450"])
-			sleep (fps)
-		
-		print "processing photos"
-
-		subprocess.call (["convert", "-delay", "100", "-size", "600x600", "0.jpg", "1.jpg", "2.jpg", "3.jpg", "-loop", "0", "ff.gif"])
-		
-		print "uploading photos"
-			
-		#send email
-		def sendMail(to, subject, text, files=[]):
-		    assert type(to)==list
-		    assert type(files)==list
-		
-		    msg = MIMEMultipart()
-		    msg['From'] = USERNAME
-		    msg['To'] = COMMASPACE.join(to)
-		    msg['Date'] = formatdate(localtime=True)
-		    msg['Subject'] = subject
-		   
-		    msg.attach( MIMEText(text) )
-		
-		    for file in files:
-		        part = MIMEBase('application', "octet-stream")
-		        part.set_payload( open(file,"rb").read() )
-		        Encoders.encode_base64(part)
-		        part.add_header('Content-Disposition', 'attachment; filename="%s"'
-		                       % os.path.basename(file))
-		        msg.attach(part)
-		
-			server = smtplib.SMTP('smtp.gmail.com:587')
-			server.ehlo_or_helo_if_needed()
-			server.starttls()
-			server.ehlo_or_helo_if_needed()
-			server.login(USERNAME,PASSWORD)
-			server.sendmail(USERNAME, to, msg.as_string())
-			server.quit()
-		
-		sendMail( ["sender@youremail.com"],
-		        "Email Subject Goes Here",
-		        "Email Body Goes Here",
-	        ["ff.gif"])
-
+	#photo capture
+	for x in range(total_dur):
+		file_name = str(x) + '.jpg'
+		print file_name
+		subprocess.call (["raspistill", "-o", file_name, "-n", "-w", "600", "-h", "450"])
+		sleep (fps)
 	
-		print "done - ready to shoot"
+	print "processing photos"
 
-		time.sleep(1.0)
+	subprocess.call (["convert", "-delay", "100", "-size", "600x600", "0.jpg", "1.jpg", "2.jpg", "3.jpg", "-loop", "0", "ff.gif"])
+	
+	print "uploading photos"
+		
+	#send email
+	def sendMail(to, subject, text, files=[]):
+		assert type(to)==list
+		assert type(files)==list
+	
+		msg = MIMEMultipart()
+		msg['From'] = USERNAME
+		msg['To'] = COMMASPACE.join(to)
+		msg['Date'] = formatdate(localtime=True)
+		msg['Subject'] = subject
+		
+		msg.attach( MIMEText(text) )
+	
+		for file in files:
+			part = MIMEBase('application', "octet-stream")
+			part.set_payload( open(file,"rb").read() )
+			Encoders.encode_base64(part)
+			part.add_header('Content-Disposition', 'attachment; filename="%s"'
+							% os.path.basename(file))
+			msg.attach(part)
+	
+		server = smtplib.SMTP('smtp.gmail.com:587')
+		server.ehlo_or_helo_if_needed()
+		server.starttls()
+		server.ehlo_or_helo_if_needed()
+		server.login(USERNAME,PASSWORD)
+		server.sendmail(USERNAME, to, msg.as_string())
+		server.quit()
+	
+	sendMail( ["sender@youremail.com"],
+			"Email Subject Goes Here",
+			"Email Body Goes Here",
+		["ff.gif"])
+
+
+	print "done - ready to shoot"
+
+	time.sleep(1.0)
