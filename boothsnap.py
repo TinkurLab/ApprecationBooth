@@ -25,12 +25,17 @@ total_dur = 4  #number of photos to be taken
 
 #motion sensor config
 pir_pin = 18
-io.setup(pir_pin, io.IN)         
+
+# GPIO setup
+io.setmode(GPIO.BOARD)
+io.setup(pir_pin, GPIO.IN, pull_up_down=io.PUD_UP)
 
 #email config
 USERNAME = "your@emailaddress.com"
 PASSWORD = "yourpassword"
 ####################################
+
+print("booth starting up...")
 
 while True:
       if io.input(pir_pin):
