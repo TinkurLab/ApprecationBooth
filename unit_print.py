@@ -1,10 +1,6 @@
-# Unit: Print New Photos
-
-# Approach: Install Google Drive on a Mac and setup to auto sync files.  Assume Zapier adds new photos to Google Drive.  This Python program runs on the Mac, monitoring the Google Drive directory.  When new files are found, the Python program sends them to the printer to print as 2x 2"x3" strips.
-
 # Python: 2.7.x
 
-# More Info:
+# More Info
 #   * https://www.cups.org/doc/options.html?VERSION=1.7&Q=
 #   * https://superuser.com/questions/681845/printing-via-commandline-cups-with-photo-printer
 
