@@ -1,9 +1,19 @@
+import re
+import time
+import argparse
+
+from luma.led_matrix.device import max7219
 from luma.core.interface.serial import spi, noop
 from luma.core.render import canvas
-from luma.led_matrix.device import max7219
+from luma.core.virtual import viewport
+from luma.core.legacy import text, show_message
+from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_FONT, LCD_FONT
 
+# create matrix device
 serial = spi(port=0, device=0, gpio=noop())
-device = max7219(serial, rotate=1)
+device = max7219(serial, cascaded=n or 4, block_orientation=block_orientation, rotate=rotate or -90)
+print("Created device")
 
-with canvas(device) as draw:
-   draw.rectangle(device.bounding_box, outline="white", fill="black"),
+msg = "Slow scrolling: The quick brown fox jumps over the lazy dog"
+print(msg)
+show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.1)
