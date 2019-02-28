@@ -16,6 +16,9 @@ from email.MIMEText import MIMEText
 from email.Utils import COMMASPACE, formatdate
 from email import Encoders
 import os
+import max7219.led as led
+
+
 
 ####################################
 #photo capture config
@@ -35,6 +38,10 @@ PASSWORD = "yourpassword"
 ####################################
 
 print("booth starting up...")
+
+### Initialize LED Matrix
+device = led.matrix()
+device.show_message("Hello world!")
 
 while True:
 	io.wait_for_edge(pir_pin, io.FALLING)
