@@ -11,7 +11,7 @@ from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_
 
 # create matrix device
 serial = spi(port=0, device=0, gpio=noop())
-device = max7219(serial, cascaded=n or 4, block_orientation=block_orientation, rotate=rotate or -90)
+device = max7219(serial, cascaded=4, block_orientation=-90)
 print("Created device")
 
 msg = "Slow scrolling: The quick brown fox jumps over the lazy dog"
