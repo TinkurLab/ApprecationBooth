@@ -17,7 +17,7 @@ from email.Utils import COMMASPACE, formatdate
 from email import Encoders
 import os
 
-# LED Matrix imports
+# import for LED Matrix
 #import max7219.led as led
 
 from luma.led_matrix.device import max7219
@@ -31,7 +31,7 @@ from itertools import repeat
 
 ####################################
 #photo capture config
-fps = 1  #delay between photos
+fps = .1  #delay between photos
 total_dur = 4  #number of photos to be taken
 
 #motion sensor config
@@ -58,7 +58,7 @@ print("Created device LED Matrix device")
 #TODO GET THE IP ADDRESS AND DISPLAY ON THE MATRIX SO WE DON'T LOSE ACCESS
 
 # start scrolling text demo - just once at startup
-msg = "4Frames Starting Up"
+msg = "4Frames Ready"
 print(msg)
 show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.05)
 
@@ -69,38 +69,43 @@ def display(msg):
 	print(msg)
 	show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.03)
 
+def capture():
+	#photo capture
+	for x in range(total_dur):
+		file_name = str(x) + '.jpg'
+		# print "Taking photo in 3...2...1"
+		# sleep (1)
+		# print "Taking photo in 2..."
+		# sleep (1)
+		# print "Taking photo in 1..."
+		# sleep (1)
+		photoCount = x + 1
+		display('Photo # ' + str(photoCount) + ' in 3')
+		display('2')
+		display('1')
+		subprocess.call (["raspistill", "-o", file_name, "-n", "-w", "800", "-h", "600"])
+		print file_name
+		sleep (fps)
+	
+	#print "processing photos"
+
+	display('Sending to Cylons')
+
+	graphicsmagick = "gm convert -delay 100 ~/Documents/src/TinkurBooth/*.jpg ~/Documents/src/TinkurBooth/ff.gif" 
+	os.system(graphicsmagick)
+	
+	#print "uploading photos"
+
+	display ('Thank you!')
+
+
 def run():
 	while True:
 		io.wait_for_edge(pir_pin, io.FALLING)
 		print("PIR ALARM!")
 		
-		#photo capture
-		for x in range(total_dur):
-			file_name = str(x) + '.jpg'
-			# print "Taking photo in 3...2...1"
-			# sleep (1)
-			# print "Taking photo in 2..."
-			# sleep (1)
-			# print "Taking photo in 1..."
-			# sleep (1)
-			photoCount = x + 1
-			display('Photo # ' + str(photoCount) + ' in 3')
-			display('2')
-			display('1')
-			subprocess.call (["raspistill", "-o", file_name, "-n", "-w", "600", "-h", "450"])
-			print file_name
-			sleep (fps)
-		
-		print "processing photos"
-
-		display('Sending to Cylons')
-
-		graphicsmagick = "gm convert -delay 100 ~/Documents/src/TinkurBooth/*.jpg ~/Documents/src/TinkurBooth/ff.gif" 
-		os.system(graphicsmagick)
-		
-		print "uploading photos"
-
-		display ('Thank you!')
+		## Button pressed, take photos
+		capture()
 
 		
 
