@@ -84,6 +84,8 @@ def run():
 			# print "Taking photo in 1..."
 			# sleep (1)
 			display('3')
+			display('2')
+			display('1')
 			sleep (3)
 			subprocess.call (["raspistill", "-o", file_name, "-n", "-w", "600", "-h", "450"])
 			print file_name
