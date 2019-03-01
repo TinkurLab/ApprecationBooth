@@ -125,7 +125,7 @@ def run():
      	msg = time.asctime()
      	msg= time.strftime("%H%M")
      	with canvas(device) as draw:
-      	text(draw, (1, 0), msg, fill="white")
+			 text(draw, (1, 0), msg, fill="white")
     	time.sleep(1)		
 		
 try:
