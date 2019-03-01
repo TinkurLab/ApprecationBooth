@@ -128,7 +128,8 @@ def run():
      	msg= time.strftime("%H%M")
      	with canvas(device) as draw:
 			 text(draw, (1, 0), msg, fill="white")
-    	time.sleep(1)		
+    	time.sleep(1)
+		print "waiting"		
 		
 try:
 	displayScroll('Ready')
