@@ -67,7 +67,7 @@ print("booth starting up...")
 
 def display(msg):
 	print(msg)
-	show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.05)
+	show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.03)
 
 def run():
 	while True:
@@ -83,20 +83,24 @@ def run():
 			# sleep (1)
 			# print "Taking photo in 1..."
 			# sleep (1)
-			display('3')
+			countdown = x + 1
+			display('Photo # ' + countdown + ' in 3')
 			display('2')
 			display('1')
-			sleep (3)
 			subprocess.call (["raspistill", "-o", file_name, "-n", "-w", "600", "-h", "450"])
 			print file_name
 			sleep (fps)
 		
 		print "processing photos"
 
+		display('Sending to Cylons')
+
 		graphicsmagick = "gm convert -delay 100 ~/Documents/src/TinkurBooth/*.jpg ~/Documents/src/TinkurBooth/ff.gif" 
 		os.system(graphicsmagick)
 		
 		print "uploading photos"
+
+		display ('Thank you!')
 
 		
 
