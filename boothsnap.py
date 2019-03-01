@@ -123,13 +123,8 @@ def run():
 			capture()
 			print "done - ready for button press"
 
-		#Show clock while waiting
 		#print ('waiting...')
-		time.sleep(1)
-     	msg = time.asctime()
-     	msg= time.strftime("%H%M")
      	displayStatic('waiting')
-    	time.sleep(1)
 		
 try:
 	displayScroll('Ready')
