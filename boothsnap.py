@@ -55,6 +55,8 @@ device.contrast(0x05)
 print("Created device LED Matrix device")
 # note: change device.contrast value (0xXX) to change leds brightness
 
+#TODO GET THE IP ADDRESS AND DISPLAY ON THE MATRIX SO WE DON'T LOSE ACCESS
+
 # start scrolling text demo - just once at startup
 msg = "4Frames Starting Up"
 print(msg)
@@ -63,6 +65,9 @@ show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_dela
 
 print("booth starting up...")
 
+def display(msg):
+	print(msg)
+	show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.05)
 
 def run():
 	while True:
@@ -72,12 +77,14 @@ def run():
 		#photo capture
 		for x in range(total_dur):
 			file_name = str(x) + '.jpg'
-			print "Taking photo in 3..."
-			sleep (1)
-			print "Taking photo in 2..."
-			sleep (1)
-			print "Taking photo in 1..."
-			sleep (1)
+			# print "Taking photo in 3...2...1"
+			# sleep (1)
+			# print "Taking photo in 2..."
+			# sleep (1)
+			# print "Taking photo in 1..."
+			# sleep (1)
+			display('3')
+			sleep (3)
 			subprocess.call (["raspistill", "-o", file_name, "-n", "-w", "600", "-h", "450"])
 			print file_name
 			sleep (fps)
