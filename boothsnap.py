@@ -72,7 +72,7 @@ def displayScroll(msg):
 def displayStatic(msg):
 	print(msg)
 	with canvas(device) as draw:
-      text(draw, (1, 0), msg, fill="white")
+		text(draw, (1, 0), msg, fill="white")
 
 def capture():
 	#photo capture
