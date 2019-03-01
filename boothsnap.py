@@ -116,7 +116,7 @@ def run():
 		#io.wait_for_edge(button, io.FALLING)
 		#print("Someone pushed the button!")
 		
-		if GPIO.event_detected(button):
+		if io.event_detected(button):
 			print('Button pressed')
 			## Button pressed, take photos
 			capture()
