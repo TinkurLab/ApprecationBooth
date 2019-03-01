@@ -109,17 +109,19 @@ def capture():
 
 ### MAIN PROGRAM ###
 def run():
-	GPIO.add_event_detect(button, io.FALLING)  # add rising edge detection on a channel
+	io.add_event_detect(button, io.FALLING)  # add falling edge detection on a channel
 	sleep(1)
-	if GPIO.event_detected(button):
-		print('Button pressed')
-		## Button pressed, take photos
-		capture()
-		print "done - ready for button press"
+	
 	while True:
 		#io.wait_for_edge(button, io.FALLING)
 		#print("Someone pushed the button!")
 		
+		if GPIO.event_detected(button):
+			print('Button pressed')
+			## Button pressed, take photos
+			capture()
+			print "done - ready for button press"
+
 		#Show clock while waiting
 		time.sleep(1)
      	msg = time.asctime()
