@@ -65,7 +65,11 @@ show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_dela
 
 print("booth starting up...")
 
-def display(msg):
+def displayScroll(msg):
+	print(msg)
+	show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.03)
+
+def displayStatic(msg):
 	print(msg)
 	show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.03)
 
@@ -80,29 +84,30 @@ def capture():
 		# print "Taking photo in 1..."
 		# sleep (1)
 		photoCount = x + 1
-		display('Photo # ' + str(photoCount) + ' in 3')
-		display('2')
-		display('1')
+		displayScroll('Photo # ' + str(photoCount) + ' in 3')
+		displayScroll('2')
+		displayScroll('1')
+		displayStatic('Hold it!')
 		subprocess.call (["raspistill", "-o", file_name, "-n", "-w", "800", "-h", "600"])
 		print file_name
 		sleep (fps)
 	
 	#print "processing photos"
 
-	display('Sending to Cylons')
+	displayScroll('Sending to Cylons')
 
 	graphicsmagick = "gm convert -delay 100 ~/Documents/src/TinkurBooth/*.jpg ~/Documents/src/TinkurBooth/ff.gif" 
 	os.system(graphicsmagick)
 	
 	#print "uploading photos"
 
-	display ('Thank you!')
+	displayScroll ('Thank you!')
 
 
 def run():
 	while True:
 		io.wait_for_edge(pir_pin, io.FALLING)
-		print("PIR ALARM!")
+		print("Someone pushed the button!")
 		
 		## Button pressed, take photos
 		capture()
