@@ -11,7 +11,7 @@ import locale
 import datetime
 
 # NOTE: change the following according to your locale setting
-locale.setlocale(locale.LC_ALL,'it_IT.UTF-8')
+locale.setlocale(locale.LC_ALL, '')
 
 from luma.led_matrix.device import max7219
 from luma.core.interface.serial import spi, noop
