@@ -123,13 +123,13 @@ def run():
 			print "done - ready for button press"
 
 		#Show clock while waiting
+		print ('waiting')
 		time.sleep(1)
      	msg = time.asctime()
      	msg= time.strftime("%H%M")
      	with canvas(device) as draw:
 			 text(draw, (1, 0), msg, fill="white")
     	time.sleep(1)
-		print ('waiting')
 		
 try:
 	displayScroll('Ready')
