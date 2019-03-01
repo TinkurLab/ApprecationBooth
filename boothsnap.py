@@ -47,8 +47,9 @@ def get_ip_address(ifname):
         struct.pack('256s', ifname[:15])
     )[20:24])
 
-print get_ip_address('lo')
-print get_ip_address('eth0')
+#print get_ip_address('lo')
+ip = get_ip_address('eth0')
+print ip
 
 ####################################
 #photo capture config
@@ -84,11 +85,11 @@ print("Created device LED Matrix device")
 print("booth starting up...")
 
 def displayScroll(msg):
-	print(msg)
+	#print(msg)
 	show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.03)
 
 def displayStatic(msg):
-	print(msg)
+	#print(msg)
 	with canvas(device) as draw:
 		text(draw, (1, 0), msg, fill="white", font=proportional(LCD_FONT))
 
@@ -96,13 +97,13 @@ def capture():
 	#photo capture
 	for x in range(total_dur):
 		file_name = str(x) + '.jpg'
-		# print "Taking photo in 3...2...1"
 		# sleep (1)
 		# print "Taking photo in 2..."
 		# sleep (1)
 		# print "Taking photo in 1..."
 		# sleep (1)
 		photoCount = x + 1
+		print "Taking photo " + str(photoCount)
 		displayScroll('Photo # ' + str(photoCount) + ' in 3')
 		displayScroll('2')
 		displayScroll('1')
@@ -148,6 +149,7 @@ def run():
 
 try:
 	displayScroll('Ready')
+	displayScroll(str(ip))
 	run()
 except KeyboardInterrupt:
 	pass
