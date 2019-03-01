@@ -71,7 +71,8 @@ def displayScroll(msg):
 
 def displayStatic(msg):
 	print(msg)
-	show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.03)
+	with canvas(device) as draw:
+      text(draw, (1, 0), msg, fill="white")
 
 def capture():
 	#photo capture
