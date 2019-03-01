@@ -124,11 +124,11 @@ def run():
 			print "done - ready for button press"
 
 		#Show clock while waiting
-		print ('waiting...')
+		#print ('waiting...')
 		time.sleep(1)
      	msg = time.asctime()
      	msg= time.strftime("%H%M")
-     	displayStatic(msg)
+     	displayStatic('waiting')
     	time.sleep(1)
 		
 try:
