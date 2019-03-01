@@ -64,7 +64,7 @@ show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_dela
 print("booth starting up...")
 
 
-def run()
+def run():
 	while True:
 		io.wait_for_edge(pir_pin, io.FALLING)
 		print("PIR ALARM!")
