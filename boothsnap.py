@@ -124,9 +124,11 @@ def run():
 			print "done - ready for button press"
 
 		#print ('waiting...')
+		time.sleep(1)
      	displayScroll('waiting')
-		time.sleep(1) 
-		
+
+
+
 try:
 	displayScroll('Ready')
 	run()
