@@ -35,11 +35,11 @@ fps = .1  #delay between photos
 total_dur = 4  #number of photos to be taken
 
 #motion sensor config
-pir_pin = 18
+button = 18
 
 # GPIO setup
 io.setmode(io.BOARD)
-io.setup(pir_pin, io.IN, pull_up_down=io.PUD_UP)
+io.setup(button, io.IN, pull_up_down=io.PUD_UP)
 
 #email config
 USERNAME = "your@emailaddress.com"
@@ -101,8 +101,9 @@ def capture():
 
 ### MAIN PROGRAM ###
 def run():
+	io.add_event_detect
 	while True:
-		io.wait_for_edge(pir_pin, io.FALLING)
+		io.wait_for_edge(button, io.FALLING)
 		print("Someone pushed the button!")
 		
 		## Button pressed, take photos
