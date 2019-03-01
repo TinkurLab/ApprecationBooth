@@ -111,6 +111,7 @@ def capture():
 ### MAIN PROGRAM ###
 def run():
 	io.add_event_detect(button, io.FALLING)  # add falling edge detection on a channel
+	print('listening for button press')
 	sleep(1)
 	
 	while True:
