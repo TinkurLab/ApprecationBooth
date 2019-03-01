@@ -60,7 +60,7 @@ print("Created device LED Matrix device")
 # start scrolling text demo - just once at startup
 msg = "4Frames Ready"
 print(msg)
-show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.05)
+show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.02)
 
 
 print("booth starting up...")
@@ -88,7 +88,7 @@ def capture():
 		displayScroll('Photo # ' + str(photoCount) + ' in 3')
 		displayScroll('2')
 		displayScroll('1')
-		displayStatic('Hold it!')
+		displayStatic('Hold!')
 		subprocess.call (["raspistill", "-o", file_name, "-n", "-w", "800", "-h", "600"])
 		print file_name
 		sleep (fps)
