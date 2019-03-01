@@ -84,7 +84,7 @@ def run():
 			# print "Taking photo in 1..."
 			# sleep (1)
 			countdown = x + 1
-			display('Photo # ' + countdown + ' in 3')
+			display('Photo # ', countdown, ' in 3')
 			display('2')
 			display('1')
 			subprocess.call (["raspistill", "-o", file_name, "-n", "-w", "600", "-h", "450"])
