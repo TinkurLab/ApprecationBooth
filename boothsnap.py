@@ -126,7 +126,8 @@ def run():
 
 		#print ('waiting...')
 		time.sleep(1)
-     	displayScroll('waiting')
+		print('waiting...')
+     	#displayScroll('waiting')
 
 
 
