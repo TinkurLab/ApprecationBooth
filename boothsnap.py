@@ -28,6 +28,12 @@ from luma.core.legacy import text, show_message
 from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_FONT, LCD_FONT
 from itertools import repeat
 
+#import for clock
+import argparse
+import locale
+import datetime
+
+
 
 ####################################
 #photo capture config
@@ -44,6 +50,8 @@ io.setup(button, io.IN, pull_up_down=io.PUD_UP)
 #email config
 USERNAME = "your@emailaddress.com"
 PASSWORD = "yourpassword"
+
+locale.setlocale(locale.LC_ALL, '') #use system time
 ####################################
 
 
@@ -101,17 +109,25 @@ def capture():
 
 ### MAIN PROGRAM ###
 def run():
-	io.add_event_detect
-	while True:
-		io.wait_for_edge(button, io.FALLING)
-		print("Someone pushed the button!")
-		
+	GPIO.add_event_detect(button, GPIO.FALLING)  # add rising edge detection on a channel
+	sleep(1)
+	if GPIO.event_detected(button):
+		print('Button pressed')
 		## Button pressed, take photos
 		capture()
 		print "done - ready for button press"
-
-		time.sleep(1.0)
-
+	while True:
+		#io.wait_for_edge(button, io.FALLING)
+		#print("Someone pushed the button!")
+		
+		#Show clock while waiting
+		time.sleep(1)
+     	msg = time.asctime()
+     	msg= time.strftime("%H%M")
+     	with canvas(device) as draw:
+      	text(draw, (1, 0), msg, fill="white")
+    	time.sleep(1)		
+		
 try:
 	displayScroll('Ready')
 	run()
