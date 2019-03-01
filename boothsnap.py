@@ -109,7 +109,7 @@ def capture():
 
 ### MAIN PROGRAM ###
 def run():
-	GPIO.add_event_detect(button, GPIO.FALLING)  # add rising edge detection on a channel
+	GPIO.add_event_detect(button, io.FALLING)  # add rising edge detection on a channel
 	sleep(1)
 	if GPIO.event_detected(button):
 		print('Button pressed')
