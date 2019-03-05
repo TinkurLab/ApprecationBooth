@@ -41,17 +41,17 @@ print(os.getenv("PrinterUser"))
 print(os.getenv("PrinterPassword"))
 
 
-def get_ip_address(ifname):
+def get_ip_address():
+    ip_address = ''
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    return socket.inet_ntoa(fcntl.ioctl(
-        s.fileno(),
-        0x8915,  # SIOCGIFADDR
-        struct.pack(b'256s', ifname[:15])
-    )[20:24])
+    s.connect(("8.8.8.8", 80))
+    ip_address = s.getsockname()[0]
+    s.close()
+    return ip_address
 
 
 # print get_ip_address('lo')
-ip = get_ip_address('eth0')
+ip = get_ip_address()
 print(ip)
 
 ####################################
