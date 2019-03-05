@@ -6,6 +6,15 @@ www.TinkurLab.com
 
 Python 3.5.x
 
+## Hardware
+
+- Raspberry Pi Model B+ v2 ([pinout](https://www.jameco.com/Jameco/workshop/circuitnotes/raspberry_pi_circuit_note_fig2.jpg))
+- Raspberry Pi Camera v1
+- LCD Matrix
+- Button
+- Mac Laptop
+- HiTi Dye Sublimation Photo Printer P510L
+
 ## Setup
 
 1. Download [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) image
@@ -14,6 +23,7 @@ Python 3.5.x
 1. Configure for local timezone, US Keyboard
 1. Run `raspi-config` and enable the camera
 1. Update Pi `using sudo apt-get update` and `sudo apt-get dist-upgrade`
+1. Verify Python 3.5.x or > is installed by running `python3`; upgrade if needed
 1. Run `sudo apt-get install graphicsmagick`
 1. Run `pip3 install RPi.GPIO`
 1. Run `pip3 install python-dotenv`
@@ -32,4 +42,20 @@ PRINTER_USER=john
 PRINTER_PASSWORD=doe
 ```
 
-Get Flowdock token from [https://flowdock.com/account/tokens](https://flowdock.com/account/tokens).
+Obtain Flowdock token from [https://flowdock.com/account/tokens](https://flowdock.com/account/tokens).
+
+## Wiring
+
+### LCD Display
+
+| LCD Pin | Raspberry Pi Pin |
+| ------- | ---------------- |
+| VCC     | 5v               |
+| GND     | Ground           |
+| DIN     | MOSI             |
+| CS      | CE0              |
+| CLK     | SCK              |
+
+### Button
+
+Wire 2x button wires to pin GPIO24 and Ground. Polarity doesn't matter.
