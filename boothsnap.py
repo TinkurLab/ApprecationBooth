@@ -138,7 +138,7 @@ def capture():
     # -draw 'image Over 100,100 225,225 image.jpg'
 	#  -draw 'text 100,100 "%m:%f %wx%h"'
 
-	os.system(graphicsmagick)
+	#os.system(graphicsmagick)
 
     # print "uploading photos"
 
