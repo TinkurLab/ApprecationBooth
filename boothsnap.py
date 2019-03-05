@@ -133,8 +133,8 @@ def capture():
     #displayScroll('Sending to Flowdock')
 
     # Create animated gif
-        #graphicsmagick = "gm convert -delay 100 ~/Documents/src/TinkurBooth/*.jpg ~/Documents/src/TinkurBooth/ff.gif"
-        #graphicsmagick = "gm montage  header.png 0.jpg whitebox.png montage.jpg"
+    #graphicsmagick = "gm convert -delay 100 ~/Documents/src/TinkurBooth/*.jpg ~/Documents/src/TinkurBooth/ff.gif"
+    graphicsmagick = "gm montage  header.png 0.jpg whitebox.png montage.jpg"
     os.system(graphicsmagick)
 
     # print "uploading photos"
