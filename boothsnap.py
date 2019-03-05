@@ -54,7 +54,7 @@ print(ip)
 ####################################
 # photo capture config
 fps = .1  # delay between photos
-total_dur = os.getenv("PHOTO_FRAMES")  # number of photos to be taken
+total_dur = str(os.getenv("PHOTO_FRAMES"))  # number of photos to be taken
 
 # button config
 button = 18
