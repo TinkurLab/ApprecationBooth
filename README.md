@@ -1,28 +1,33 @@
 # TinkurBooth
 
-Created by Adam Zolyak
+Created by Adam Zolyak and Matthew Gorbsky
 Tinkurlab
 www.TinkurLab.com
 
-Python 3.x
+Python 3.5.x
 
-pip3 install RPi.GPIO
+## Setup
 
-sudo apt-get install graphicsmagick
-
-pip3 install python-dotenv
-
-pip3 install luma.led_matrix
-
-update gpu mem
-https://raspberrypi.stackexchange.com/questions/13764/what-causes-enospc-error-when-using-the-raspberry-pi-camera-module
-
-# config file for variables
-
-Create a `.env` filr with the following variables:
+1. Download [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) image
+1. Flash image to a SD card using [Etcher](https://www.balena.io/etcher/)
+1. Connect to monitor, keyboard, mouse, Ethernet and power up
+1. Configure for local timezone, US Keyboard
+1. Run `raspi-config` and enable the camera
+1. Update Pi `using sudo apt-get update` and `sudo apt-get dist-upgrade`
+1. Run `sudo apt-get install graphicsmagick`
+1. Run `pip3 install RPi.GPIO`
+1. Run `pip3 install python-dotenv`
+1. Run `pip3 install luma.led_matrix`
+1. [Update GPU memory](https://raspberrypi.stackexchange.com/questions/13764/what-causes-enospc-error-when-using-the-raspberry-pi-camera-module) to `144`
+1. Create a `.env` filr with the following variables:
 
 ```
-FlowdockToken=abcd1234
-PrinterUser=xkcd4321
-PrinterPassword=fafa4343
+PHOTO_FRAMES=4
+FLOWDOCK_TOKEN=123456
+FLOWDOCK_ORG=123456
+FLOWDOCK_FLOW=123456
+PrinterUser=123456
+PrinterPassword=123456
 ```
+
+Get Flowdock token from [https://flowdock.com/account/tokens](https://flowdock.com/account/tokens).
