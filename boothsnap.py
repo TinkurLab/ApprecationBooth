@@ -127,6 +127,8 @@ def capture():
 
     displayScroll('Thank you!')
 
+    return "ff.gif"
+
 ### MAIN PROGRAM ###
 
 
@@ -143,7 +145,8 @@ def run():
         if io.event_detected(button):
             print('Button pressed')
             # Button pressed, take photos
-            capture()
+            fileName = capture()
+            print("fileName: " + fileName)
             print "done - ready for button press"
 
         #print ('waiting...')
