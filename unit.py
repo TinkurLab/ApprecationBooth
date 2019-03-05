@@ -3,7 +3,7 @@ import time
 
 ledPin = 16
 
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 GPIO.setup(ledPin, GPIO.OUT)
 
