@@ -50,9 +50,9 @@ def get_ip_address(ifname):
     )[20:24])
 
 
-#print get_ip_address('lo')
+# print get_ip_address('lo')
 ip = get_ip_address('eth0')
-print ip
+print(ip)
 
 ####################################
 # photo capture config
@@ -106,28 +106,35 @@ def capture():
         # print "Taking photo in 1..."
         # sleep (1)
         photoCount = x + 1
-        print "Taking photo " + str(photoCount)
+        print("Taking photo " + str(photoCount))
         displayScroll('Photo # ' + str(photoCount) + ' in 3')
         displayScroll('2')
         displayScroll('1')
         displayStatic('Hold!')
         subprocess.call(["raspistill", "-o", file_name,
                          "-n", "-w", "800", "-h", "600"])
-        print file_name
+        print(file_name)
         sleep(fps)
 
-    #print "processing photos"
+    # print "processing photos"
 
     displayScroll('Sending to Cylons')
 
     graphicsmagick = "gm convert -delay 100 ~/Documents/src/TinkurBooth/*.jpg ~/Documents/src/TinkurBooth/ff.gif"
     os.system(graphicsmagick)
 
-    #print "uploading photos"
+    # print "uploading photos"
 
     displayScroll('Thank you!')
 
     return "ff.gif"
+
+
+def postToFlowdock():
+    flowdockCurl = 'curl -v -X POST -F "event=file" -F "content=@FILENAME.jpg" https://TOKEN@api.flowdock.com/flows/ORGANIZATION_NAME/FLOW_NAME/messages'
+
+    os.system(flowdockCurl)
+
 
 ### MAIN PROGRAM ###
 
@@ -147,7 +154,7 @@ def run():
             # Button pressed, take photos
             fileName = capture()
             print("fileName: " + fileName)
-            print "done - ready for button press"
+            print("done - ready for button press")
 
         #print ('waiting...')
         time.sleep(1)
