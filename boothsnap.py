@@ -169,7 +169,6 @@ def run():
             capture()
             postToFlowdock()
             printPhoto()
-            print("fileName: " + fileName)
             print("done - ready for button press")
 
         #print ('waiting...')
