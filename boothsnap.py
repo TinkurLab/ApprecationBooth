@@ -4,6 +4,9 @@
 import os
 from dotenv import load_dotenv
 
+# import time
+import time
+
 # import for photo capture
 import subprocess
 import time
@@ -144,8 +147,9 @@ def printPhoto():
     printerName = os.getenv("PRINTER_NAME_OR_IP")
     printerUser = os.getenv("PRINTER_USER")
     printerPassword = os.getenv("PRINTER_PASSWORD")
+    newFilename = str(time.time()) + ".jpg"
     printerTransfer = 'sshpass -p %s -v scp %s %s@%s:~/Documents/Source/TinkurBooth/%s' % (
-        printerPassword, filename, printerUser, printerName, filename)
+        printerPassword, filename, printerUser, printerName, newFilename)
 
     print("Transfering photo to printer...")
     os.system(printerTransfer)
