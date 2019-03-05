@@ -4,6 +4,8 @@ Created by Adam Zolyak
 Tinkurlab
 www.TinkurLab.com
 
+Python 3.x
+
 pip3 install RPi.GPIO
 
 sudo apt-get install graphicsmagick
