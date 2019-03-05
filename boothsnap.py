@@ -119,9 +119,9 @@ def capture():
         # sleep (1)
         photoCount = x + 1
         print("Taking photo " + str(photoCount))
-        displayScroll('Photo # ' + str(photoCount) + ' in 3')
-        displayScroll('2')
-        displayScroll('1')
+        displayScroll('Photo in 3..2..1..')
+        #displayScroll('2')
+        #displayScroll('1')
         displayStatic('Hold!')
         subprocess.call(["raspistill", "-o", file_name,
                          "-n", "-w", "800", "-h", "600"])
@@ -130,7 +130,7 @@ def capture():
 
     # print "processing photos"
 
-    displayScroll('Sending to Cylons')
+    displayScroll('Sending to Flowdock')
 
     graphicsmagick = "gm convert -delay 100 ~/Documents/src/TinkurBooth/*.jpg ~/Documents/src/TinkurBooth/ff.gif"
     os.system(graphicsmagick)
