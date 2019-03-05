@@ -134,8 +134,13 @@ def capture():
 
     # Create animated gif
     #graphicsmagick = "gm convert -delay 100 ~/Documents/src/TinkurBooth/*.jpg ~/Documents/src/TinkurBooth/ff.gif"
-    graphicsmagick = "gm montage  header.png 0.jpg whitebox.png montage.jpg"
-    os.system(graphicsmagick)
+    #graphicsmagick = "gm convert 0.jpg -draw 'image Over 0,00 %wx%h header.png' test2.jpg"
+    # -draw 'image Over 100,100 225,225 image.jpg'
+	#  -draw 'text 100,100 "%m:%f %wx%h"'
+
+	convert 0.jpg -font Arial -pointsize 64 -fill red -gravity center -draw "rotate 20 text 0,0 'TESTING'" logo_test2.jpg
+
+	os.system(graphicsmagick)
 
     # print "uploading photos"
 
@@ -145,7 +150,7 @@ def capture():
 
 
 def postToFlowdock():
-    filename = 'ff.gif'
+    filename = '0.jpg'
     flowdockToken = os.getenv("FLOWDOCK_TOKEN")
     flowdockOrg = os.getenv("FLOWDOCK_ORG")
     flowdockFlow = os.getenv("FLOWDOCK_FLOW")
