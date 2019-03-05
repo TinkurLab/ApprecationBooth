@@ -18,6 +18,7 @@ Python 3.5.x
 1. Run `pip3 install RPi.GPIO`
 1. Run `pip3 install python-dotenv`
 1. Run `pip3 install luma.led_matrix`
+1. Run `sudo apt-get install sshpass`
 1. [Update GPU memory](https://raspberrypi.stackexchange.com/questions/13764/what-causes-enospc-error-when-using-the-raspberry-pi-camera-module) to `144`
 1. Create a `.env` filr with the following variables:
 
