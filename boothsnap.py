@@ -74,7 +74,7 @@ locale.setlocale(locale.LC_ALL, '') #use system time
 ### Initialize LED Matrix
 # create device for linear preassembled 4x8x8 max7219 matrix
 serial = spi(port=0, device=0, gpio=noop())
-device = max7219(serial, cascaded=4, block_orientation=-90)
+device = max7219(serial, cascaded=4, block_orientation=90)
 device.contrast(0x05)
 print("Created device LED Matrix device")
 # note: change device.contrast value (0xXX) to change leds brightness
