@@ -99,11 +99,11 @@ def displayStatic(msg):
 
 
 def blinkButton(interval):
-    print("Button LED on...")
+    #print("Button LED on...")
     io.output(buttonLed, io.HIGH)
     time.sleep(interval)
 
-    print("Button LED off...")
+    #print("Button LED off...")
     io.output(buttonLed, io.LOW)
     time.sleep(interval)
 
