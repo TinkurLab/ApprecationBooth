@@ -138,8 +138,6 @@ def capture():
     # -draw 'image Over 100,100 225,225 image.jpg'
 	#  -draw 'text 100,100 "%m:%f %wx%h"'
 
-	convert 0.jpg -font Arial -pointsize 64 -fill red -gravity center -draw "rotate 20 text 0,0 'TESTING'" logo_test2.jpg
-
 	os.system(graphicsmagick)
 
     # print "uploading photos"
