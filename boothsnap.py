@@ -179,7 +179,7 @@ def run():
     while True:
         #io.wait_for_edge(button, io.FALLING)
         #print("Someone pushed the button!")
-        blinkButton(1)
+        # blinkButton(1)
 
         if io.event_detected(button):
             print('Button pressed')
