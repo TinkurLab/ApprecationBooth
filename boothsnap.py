@@ -59,16 +59,12 @@ print ip
 fps = .1  # delay between photos
 total_dur = 4  # number of photos to be taken
 
-# motion sensor config
+# button config
 button = 18
 
 # GPIO setup
 io.setmode(io.BOARD)
 io.setup(button, io.IN, pull_up_down=io.PUD_UP)
-
-# email config
-USERNAME = "your@emailaddress.com"
-PASSWORD = "yourpassword"
 
 locale.setlocale(locale.LC_ALL, '')  # use system time
 ####################################

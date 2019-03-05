@@ -13,6 +13,10 @@ https://raspberrypi.stackexchange.com/questions/13764/what-causes-enospc-error-w
 
 # config file for variables
 
+Create a `.env` filr with the following variables:
+
+```
 FlowdockToken=abcd1234
 PrinterUser=xkcd4321
 PrinterPassword=fafa4343
+```
