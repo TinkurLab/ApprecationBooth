@@ -10,6 +10,8 @@ sudo apt-get install graphicsmagick
 
 pip3 install python-dotenv
 
+pip3 install luma.led_matrix
+
 update gpu mem
 https://raspberrypi.stackexchange.com/questions/13764/what-causes-enospc-error-when-using-the-raspberry-pi-camera-module
 
