@@ -27,8 +27,9 @@ PHOTO_FRAMES=4
 FLOWDOCK_TOKEN=123456
 FLOWDOCK_ORG=123456
 FLOWDOCK_FLOW=123456
-PrinterUser=123456
-PrinterPassword=123456
+PRINTER_NAME_OR_IP=192.168.1.1
+PRINTER_USER=john
+PRINTER_PASSWORD=doe
 ```
 
 Get Flowdock token from [https://flowdock.com/account/tokens](https://flowdock.com/account/tokens).

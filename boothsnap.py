@@ -141,10 +141,11 @@ def postToFlowdock():
 
 def printPhoto():
     filename = '0.jpg'
+    printerName = os.getenv("PRINTER_NAME_OR_IP")
     printerUser = os.getenv("PRINTER_USER")
     printerPassword = os.getenv("PRINTER_PASSWORD")
-    printerTransfer = 'sshpass -p %s -v scp %s %s@192.168.1.32:/Users/pi/Documents/Source/TinkurBooth/%s' % (
-        printerPassword, filename, printerUser, filename)
+    printerTransfer = 'sshpass -p %s -v scp %s %s@%s:~/Documents/Source/TinkurBooth/%s' % (
+        printerPassword, filename, printerUser, printerName, filename)
 
     print("Transfering photo to printer...")
     os.system(printerTransfer)
