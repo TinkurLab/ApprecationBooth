@@ -1,9 +1,9 @@
 import RPi.GPIO as GPIO
 import time
 
-ledPin = 16
+ledPin = 20
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(ledPin, GPIO.OUT)
 

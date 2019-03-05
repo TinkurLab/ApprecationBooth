@@ -60,10 +60,10 @@ fps = .1  # delay between photos
 total_dur = int(os.getenv("PHOTO_FRAMES"))  # number of photos to be taken
 
 # button config
-button = 18
+button = 24
 
 # GPIO setup
-io.setmode(io.BOARD)
+io.setmode(io.BCM)
 io.setup(button, io.IN, pull_up_down=io.PUD_UP)
 
 locale.setlocale(locale.LC_ALL, '')  # use system time
