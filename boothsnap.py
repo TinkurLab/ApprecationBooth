@@ -120,8 +120,8 @@ def capture():
         photoCount = x + 1
         print("Taking photo " + str(photoCount))
         displayScroll('Photo in 3..2..1..')
-        #displayScroll('2')
-        #displayScroll('1')
+        # displayScroll('2')
+        # displayScroll('1')
         displayStatic('Hold!')
         subprocess.call(["raspistill", "-o", file_name,
                          "-n", "-w", "800", "-h", "600"])
@@ -132,9 +132,9 @@ def capture():
 
     #displayScroll('Sending to Flowdock')
 
-    #Create animated gif
-	#graphicsmagick = "gm convert -delay 100 ~/Documents/src/TinkurBooth/*.jpg ~/Documents/src/TinkurBooth/ff.gif"
-	#graphicsmagick = "gm montage  header.png 0.jpg whitebox.png montage.jpg"
+    # Create animated gif
+        #graphicsmagick = "gm convert -delay 100 ~/Documents/src/TinkurBooth/*.jpg ~/Documents/src/TinkurBooth/ff.gif"
+        #graphicsmagick = "gm montage  header.png 0.jpg whitebox.png montage.jpg"
     os.system(graphicsmagick)
 
     # print "uploading photos"
@@ -153,7 +153,7 @@ def postToFlowdock():
         filename, flowdockToken, flowdockOrg, flowdockFlow)
 
     print("Posting to Flowdock...")
-	displayScroll('Sending to Flowdock')
+    displayScroll('Sending to Flowdock')
 
     os.system(flowdockCurl)
 
@@ -168,7 +168,7 @@ def printPhoto():
         printerPassword, filename, printerUser, printerName, newFilename)
 
     print("Transfering photo to printer...")
-	displayScroll('Printing')
+    displayScroll('Printing')
 
     os.system(printerTransfer)
 
