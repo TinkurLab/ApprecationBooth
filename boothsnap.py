@@ -132,7 +132,8 @@ def postToFlowdock():
     flowdockToken = os.getenv("FLOWDOCK_TOKEN")
     flowdockOrg = os.getenv("FLOWDOCK_ORG")
     flowdockFlow = os.getenv("FLOWDOCK_FLOW")
-    flowdockCurl = f'curl -v -X POST -F "event=file" -F "content=@{filename}" https://{flowdockToken}@api.flowdock.com/flows/{flowdockOrg}/{flowdockFlow}/messages'
+    flowdockCurl = 'curl -v -X POST -F "event=file" -F "content=@%s" https://%s@api.flowdock.com/flows/%s/%s/messages' % (
+        filename, flowdockToken, flowdockOrg, flowdockFlow)
 
     print("Posting to Flowdock...")
     os.system(flowdockCurl)
