@@ -130,9 +130,10 @@ def capture():
 
     # print "processing photos"
 
-    displayScroll('Sending to Flowdock')
+    #displayScroll('Sending to Flowdock')
 
-    graphicsmagick = "gm convert -delay 100 ~/Documents/src/TinkurBooth/*.jpg ~/Documents/src/TinkurBooth/ff.gif"
+    #Create animated gif
+	#graphicsmagick = "gm convert -delay 100 ~/Documents/src/TinkurBooth/*.jpg ~/Documents/src/TinkurBooth/ff.gif"
     os.system(graphicsmagick)
 
     # print "uploading photos"
@@ -151,6 +152,8 @@ def postToFlowdock():
         filename, flowdockToken, flowdockOrg, flowdockFlow)
 
     print("Posting to Flowdock...")
+	displayScroll('Sending to Flowdock')
+
     os.system(flowdockCurl)
 
 
@@ -164,6 +167,8 @@ def printPhoto():
         printerPassword, filename, printerUser, printerName, newFilename)
 
     print("Transfering photo to printer...")
+	displayScroll('Printing')
+
     os.system(printerTransfer)
 
 
