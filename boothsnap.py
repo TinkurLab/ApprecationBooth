@@ -66,7 +66,7 @@ buttonLed = 21
 # GPIO setup
 io.setmode(io.BCM)
 io.setup(button, io.IN, pull_up_down=io.PUD_UP)
-io.setup(buttonLed, GPIO.OUT)
+io.setup(buttonLed, io.OUT)
 
 locale.setlocale(locale.LC_ALL, '')  # use system time
 ####################################
