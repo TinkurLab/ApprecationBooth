@@ -177,23 +177,24 @@ def run():
     sleep(1)
 
     while True:
-        #io.wait_for_edge(button, io.FALLING)
-        #print("Someone pushed the button!")
-        blinkButton(0.25)
+        # blink the button
+        blinkButton(0.5)
 
         if io.event_detected(button):
-            print('Button pressed')
-            # Button pressed, take photos
+            print('button pressed')
+            # button pressed, take photos
             capture()
+
+            # post photos to Flowdock
             postToFlowdock()
+
+            # transfer photos to printer to print
             printPhoto()
+
             print("done - ready for button press")
 
-        #print ('waiting...')
-        time.sleep(1)
+        time.sleep(0.5)
         displayScroll('.')
-        # print('waiting...')
-    # displayScroll('waiting')
 
 
 try:

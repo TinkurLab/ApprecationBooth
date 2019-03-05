@@ -51,11 +51,16 @@ Obtain Flowdock token from [https://flowdock.com/account/tokens](https://flowdoc
 | LCD Pin | Raspberry Pi Pin |
 | ------- | ---------------- |
 | VCC     | 5v               |
-| GND     | Ground           |
+| GND     | GND              |
 | DIN     | MOSI             |
 | CS      | CE0              |
 | CLK     | SCK              |
 
 ### Button
 
-Wire 2x button wires to pin GPIO24 and Ground. Polarity doesn't matter.
+| Button Pin                       | Raspberry Pi Pin     |
+| -------------------------------- | -------------------- |
+| Button (polarity doesn't matter) | GPIO24               |
+| Button (polarity doesn't matter) | GND                  |
+| LED +                            | GPIO21               |
+| LED GND                          | 220Ω resistor to GND |
