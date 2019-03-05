@@ -36,9 +36,6 @@ import struct
 
 # load .env variables
 load_dotenv(dotenv_path='.env', verbose=True)
-print(os.getenv("FlowdockToken"))
-print(os.getenv("PrinterUser"))
-print(os.getenv("PrinterPassword"))
 
 
 def get_ip_address():
@@ -131,8 +128,13 @@ def capture():
 
 
 def postToFlowdock():
-    flowdockCurl = 'curl -v -X POST -F "event=file" -F "content=@FILENAME.jpg" https://TOKEN@api.flowdock.com/flows/ORGANIZATION_NAME/FLOW_NAME/messages'
+    filename = 'ff.gif'
+    flowdockToken = os.getenv("FLOWDOCK_TOKEN")
+    flowdockOrg = os.getenv("FLOWDOCK_ORG")
+    flowdockFlow = os.getenv("FLOWDOCK_FLOW")
+    flowdockCurl = f'curl -v -X POST -F "event=file" -F "content=@{filename}" https://{flowdockToken}@api.flowdock.com/flows/{flowdockOrg}/{flowdockFlow}/messages'
 
+    print("Posting to Flowdock...")
     os.system(flowdockCurl)
 
 
@@ -152,7 +154,8 @@ def run():
         if io.event_detected(button):
             print('Button pressed')
             # Button pressed, take photos
-            fileName = capture()
+            capture()
+            postToFlowdock()
             print("fileName: " + fileName)
             print("done - ready for button press")
 
