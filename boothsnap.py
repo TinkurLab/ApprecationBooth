@@ -41,20 +41,17 @@ print(os.getenv("PrinterUser"))
 print(os.getenv("PrinterPassword"))
 
 
-def get_ip_address():
-    try:
-        host_name = socket.gethostname()
-        host_ip = socket.gethostbyname(host_name)
-        print("Hostname :  ", host_name)
-        print("IP : ", host_ip)
-        return host_ip
-    except:
-        print("Unable to get Hostname and IP")
-        return "Unable to get Hostname and IP"
+def get_ip_address(ifname):
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    return socket.inet_ntoa(fcntl.ioctl(
+        s.fileno(),
+        0x8915,  # SIOCGIFADDR
+        struct.pack(b'256s', ifname[:15])
+    )[20:24])
 
 
 # print get_ip_address('lo')
-ip = get_ip_address()
+ip = get_ip_address('eth0')
 print(ip)
 
 ####################################
