@@ -61,10 +61,12 @@ total_dur = int(os.getenv("PHOTO_FRAMES"))  # number of photos to be taken
 
 # button config
 button = 24
+buttonLed = 21
 
 # GPIO setup
 io.setmode(io.BCM)
 io.setup(button, io.IN, pull_up_down=io.PUD_UP)
+io.setup(buttonLed, GPIO.OUT)
 
 locale.setlocale(locale.LC_ALL, '')  # use system time
 ####################################
@@ -94,6 +96,16 @@ def displayStatic(msg):
     # print(msg)
     with canvas(device) as draw:
         text(draw, (1, 0), msg, fill="white", font=proportional(LCD_FONT))
+
+
+def blinkButton(interval):
+    print("Button LED on...")
+    io.output(buttonLed, io.HIGH)
+    time.sleep(interval)
+
+    print("Button LED off...")
+    io.output(buttonLed, io.LOW)
+    time.sleep(interval)
 
 
 def capture():
@@ -167,6 +179,7 @@ def run():
     while True:
         #io.wait_for_edge(button, io.FALLING)
         #print("Someone pushed the button!")
+        blinkButton(1)
 
         if io.event_detected(button):
             print('Button pressed')
