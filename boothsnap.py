@@ -127,7 +127,7 @@ def capture():
         os.system(takePhoto)
         cropPhoto = "convert 0.jpg -crop '1200x800+150+200' crop.jpg"
         os.system(cropPhoto)
-        montagePhoto = "montage header.png crop.jpg footer.png -tile 1x3 -geometry +50+70 final.jpg"
+        montagePhoto = "montage header.png crop.jpg footer.png -tile 1x3 -geometry +50+20 final.jpg"
         os.system(montagePhoto)
         print(file_name)
         sleep(fps)
