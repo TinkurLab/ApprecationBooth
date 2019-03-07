@@ -17,5 +17,5 @@ while 1:
     if added:
         for photo in added:
             print "Photo: " + photo
-            os.system("lp -d HiTi_P510L -o media=P6x4 " + photo)
+            os.system("lp -d HiTi_P510L -o fit-to-page -o media=P6x4 " + photo)
     before = after
