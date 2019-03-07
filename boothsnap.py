@@ -123,8 +123,12 @@ def capture():
         # displayScroll('2')
         # displayScroll('1')
         displayStatic('Hold!')
-        subprocess.call(["raspistill", "-o", file_name,
-                         "-n", "-w", "800", "-h", "600"])
+        takePhoto = "raspistill -o 0.jpg -n -w 1500 -h 1000"
+        os.system(takePhoto)
+        cropPhoto = "convert 0.jpg -crop '1200x800+150+200' crop.jpg"
+        os.system(cropPhoto)
+        montagePhoto = "montage header.png crop.jpg footer.png -tile 1x3 -geometry +50+70 final.jpg"
+        os.system(montagePhoto)
         print(file_name)
         sleep(fps)
 
@@ -136,19 +140,17 @@ def capture():
     #graphicsmagick = "gm convert -delay 100 ~/Documents/src/TinkurBooth/*.jpg ~/Documents/src/TinkurBooth/ff.gif"
     #graphicsmagick = "gm convert 0.jpg -draw 'image Over 0,00 %wx%h header.png' test2.jpg"
     # -draw 'image Over 100,100 225,225 image.jpg'
-	#  -draw 'text 100,100 "%m:%f %wx%h"'
+        #  -draw 'text 100,100 "%m:%f %wx%h"'
 
-	#os.system(graphicsmagick)
+        # os.system(graphicsmagick)
 
     # print "uploading photos"
 
     displayScroll('Thank you!')
 
-    return "ff.gif"
-
 
 def postToFlowdock():
-    filename = '0.jpg'
+    filename = 'crop.jpg'
     flowdockToken = os.getenv("FLOWDOCK_TOKEN")
     flowdockOrg = os.getenv("FLOWDOCK_ORG")
     flowdockFlow = os.getenv("FLOWDOCK_FLOW")
@@ -162,7 +164,7 @@ def postToFlowdock():
 
 
 def printPhoto():
-    filename = '0.jpg'
+    filename = 'final.jpg'
     printerName = os.getenv("PRINTER_NAME_OR_IP")
     printerUser = os.getenv("PRINTER_USER")
     printerPassword = os.getenv("PRINTER_PASSWORD")
