@@ -91,8 +91,8 @@ exit 0
 
 ## Marketing
 
-- [Appreciate Each Other sticker](/marketing/AppreciateOneAnotherSticker.png) [Sketch App](https://www.sketchapp.com/) [source file](/marketing/AppreciationBoothPoster.sketch)
-- [Appreciation Booth instructions poster](/marketing/AppreciationBoothPoster.png) [Sketch App](https://www.sketchapp.com/) [source file](/marketing/AppreciationOneAnothersticker.sketch)
+- [Appreciate Each Other sticker](/marketing/AppreciateOneAnotherSticker.png) ([Sketch App](https://www.sketchapp.com/) [source file](/marketing/AppreciationBoothPoster.sketch))
+- [Appreciation Booth instructions poster](/marketing/AppreciationBoothPoster.png) ([Sketch App](https://www.sketchapp.com/) [source file](/marketing/AppreciationOneAnothersticker.sketch))
 
 ## Broadcom Chips
 
