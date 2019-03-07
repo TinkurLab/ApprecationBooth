@@ -1,10 +1,6 @@
 # TinkurBooth
 
-Created by Adam Zolyak and Matthew Gorbsky
-Tinkurlab
-www.TinkurLab.com
-
-Python 3.5.x
+A photobooth to help appreicate the people you care about! 🙌
 
 ## Hardware
 
@@ -13,9 +9,10 @@ Python 3.5.x
 - LCD Matrix
 - Button
 - Mac Laptop
-- HiTi Dye Sublimation Photo Printer P510L
+- HiTi P510L Dye Sublimation Photo Printer
+- hookup wire, power supplies, ethernet cable, etc
 
-## Setup
+## Raspberry Pi Setup
 
 1. Download [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) image
 2. Flash image to a SD card using [Etcher](https://www.balena.io/etcher/)
@@ -63,6 +60,14 @@ exit 0
 
 17. To verify script is starting when the Pi boots, run `systemctl status rc.local.service` to view the `rc.local` startup logs.
 
+## Laptop and Printer Setup
+
+1. [Enable ssh / sftp / scp on Mac](https://www.maciverse.com/how-to-turn-on-your-macs-sftp.html); optionally create a new service account for the transfers
+2. Install [HiTi P510L drivers](http://download.hiti.com/index.asp)
+3. Install sshpass on Pi `sudo apt-get install sshpass`
+4. Manually SSH to the laptop once from the Raspberry Pi to answer yes to the trusted prompt
+5. Run `python unit_print.py` to start the script that looks for new images and prints them
+
 ## Wiring
 
 ### LCD Display
@@ -84,8 +89,19 @@ exit 0
 | LED +                            | GPIO21               |
 | LED GND                          | 220Ω resistor to GND |
 
+## Marketing
+
+- [Appreciate Each Other sticker](/marketing/AppreciateOneAnotherSticker.png) [Sketch App](https://www.sketchapp.com/) [source file](/marketing/AppreciationBoothPoster.sketch)
+- [Appreciation Booth instructions poster](/marketing/AppreciationBoothPoster.png) [Sketch App](https://www.sketchapp.com/) [source file](/marketing/AppreciationOneAnothersticker.sketch)
+
 ## Broadcom Chips
 
-BCM2837 Quad Core 1.2GHz Broadcom 64bit CPU
-BCM43438 wireless LAN and Bluetooth Low Energy (BLE) on board
-MMAL (Multimedia Abstraction Layer) is a C library designed by Broadcom for use with the Videocore IV GPU found on the Raspberry Pi.
+- BCM2837 Quad Core 1.2GHz Broadcom 64bit CPU
+- BCM43438 wireless LAN and Bluetooth Low Energy (BLE) on board
+- MMAL (Multimedia Abstraction Layer) is a C library designed by Broadcom for use with the Videocore IV GPU on the Raspberry Pi
+
+## License
+
+Created by Adam Zolyak and Matthew Gorbsky
+
+[GNU GENERAL PUBLIC LICENSE](LICENSE)
