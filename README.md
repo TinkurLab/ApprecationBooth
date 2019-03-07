@@ -26,8 +26,9 @@ A photobooth to help appreicate the people you care about! 🙌
 10. Run `pip3 install python-dotenv`
 11. Run `pip3 install luma.led_matrix`
 12. Run `sudo apt-get install sshpass`
-13. [Update GPU memory](https://raspberrypi.stackexchange.com/questions/13764/what-causes-enospc-error-when-using-the-raspberry-pi-camera-module) to `144`
-14. Create a `.env` filr with the following variables:
+13. Run `sudo apt-get install imagemagick`
+14. [Update GPU memory](https://raspberrypi.stackexchange.com/questions/13764/what-causes-enospc-error-when-using-the-raspberry-pi-camera-module) to `144`
+15. Create a `.env` filr with the following variables:
 
 ```
 PHOTO_FRAMES=4
@@ -41,8 +42,8 @@ PRINTER_PASSWORD=doe
 
 Obtain Flowdock token from [https://flowdock.com/account/tokens](https://flowdock.com/account/tokens).
 
-15. Run `sudo raspi-config` and enable wait for network under boot options.
-16. Run `sudo nano /etc/rc.local` with the following:
+16. Run `sudo raspi-config` and enable wait for network under boot options.
+17. Run `sudo nano /etc/rc.local` with the following:
 
 ```
 # Print the IP address
@@ -99,6 +100,12 @@ exit 0
 - BCM2837 Quad Core 1.2GHz Broadcom 64bit CPU
 - BCM43438 wireless LAN and Bluetooth Low Energy (BLE) on board
 - MMAL (Multimedia Abstraction Layer) is a C library designed by Broadcom for use with the Videocore IV GPU on the Raspberry Pi
+
+## Reference
+
+- [Imagemagick Image Manitulation](https://imagemagick.org/script/command-line-processing.php)
+- [Raspberry PI Camera](https://www.raspberrypi.org/documentation/raspbian/applications/camera.md)
+- [Command Line Printing](https://www.cups.org/doc/options.html)
 
 ## License
 
