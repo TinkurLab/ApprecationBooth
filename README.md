@@ -1,4 +1,4 @@
-# TinkurBooth
+# Tinkur Appreciation Booth
 
 A photobooth to help appreicate the people you care about! 🙌
 
