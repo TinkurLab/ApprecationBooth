@@ -66,7 +66,7 @@ exit 0
 1. [Enable ssh / sftp / scp on Mac](https://www.maciverse.com/how-to-turn-on-your-macs-sftp.html); optionally create a new service account for the transfers
 2. Install [HiTi P510L drivers](http://download.hiti.com/index.asp)
 3. Install sshpass on Pi `sudo apt-get install sshpass`
-4. Manually SSH to the laptop once from the Raspberry Pi to answer yes to the trusted prompt
+4. Manually SSH to the laptop once from the Raspberry Pi to answer yes to the trusted prompt (or update [`known_hosts`](https://www.ssh.com/ssh/host-key))
 5. Run `python unit_print.py` to start the script that looks for new images and prints them
 
 ## Wiring
